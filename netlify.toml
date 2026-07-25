@@ -1,7 +1,7 @@
 [build]
-command = "echo 'Static FLPR site — no build required'"
-publish = "."
-functions = "netlify/functions"
+command = "node build.js"
+publish = "dist"
+functions = "netlify-functions"
 
 [functions]
 node_bundler = "esbuild"

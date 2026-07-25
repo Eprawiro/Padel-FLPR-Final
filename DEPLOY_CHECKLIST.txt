@@ -17,9 +17,9 @@ Netlify settings:
 Base directory: leave empty
 Build command: use configuration from netlify.toml
 Publish directory: .
-Functions directory: netlify/functions
+Functions directory: . (repository root)
 
 After deployment test:
-1. https://YOUR-SITE.netlify.app/data/flpr-data.json
+1. https://YOUR-SITE.netlify.app/flpr-data.json
 2. https://YOUR-SITE.netlify.app/#home
 3. https://YOUR-SITE.netlify.app/#import

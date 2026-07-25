@@ -1,0 +1,24 @@
+FLPR V1 — HP ROOT-ONLY, NETLIFY-SAFE
+
+Upload every file in this extracted folder directly to the GitHub repository root.
+There are no folders to upload from the phone.
+
+Files:
+- index.html
+- 404.html
+- styles.css
+- flpr-data.json
+- import-americano.js
+- build.js
+- package.json
+- netlify.toml
+- README.md
+- DEPLOY_CHECKLIST.txt
+- UPLOAD_FROM_HP.txt
+
+During deployment, Netlify runs build.js and automatically creates:
+- dist/ for the website
+- netlify-functions/ for the server function
+
+Do not set a manual Base directory.
+The settings in netlify.toml are used automatically.

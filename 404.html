@@ -18,5 +18,158 @@
 </header>
 <main id="app"></main>
 <footer><b>FLPR</b> · Fair ranking. Smarter handicaps. Better competition.<br><small>Beta D2 · Source: FLPR Master Workbook v2.6</small></footer>
-<script src="app.js"></script>
+<script>
+
+let DATA;
+const $=s=>document.querySelector(s);
+const initials=n=>n.split(/\s+/).map(x=>x[0]).slice(0,2).join("");
+const fmt=n=>Number(n).toLocaleString(undefined,{maximumFractionDigits:1});
+const badge=(txt,cls="")=>`<span class="badge ${cls}">${txt}</span>`;
+async function boot(){
+ try{
+  const response=await fetch("/flpr-data.json?v=1.0.0-prod",{cache:"no-store"});
+  if(!response.ok)throw new Error(`FLPR data returned HTTP ${response.status}`);
+  DATA=await response.json();
+  route();
+ }catch(error){
+  console.error("FLPR boot error:",error);
+  document.querySelector("#app").innerHTML=`<section class="hero"><div class="eyebrow">Deployment check</div><h1 style="font-size:55px">FLPR data could not load</h1><p>The website files are online, but <code>/flpr-data.json</code> is missing or Netlify is publishing the wrong folder.</p></section><section class="wrap"><div class="card"><h3>How to fix</h3><p>Set the Netlify publish directory to the repository root and confirm that the repository contains:</p><pre>index.html
+app.js
+styles.css
+flpr-data.json
+import-americano.js
+netlify.toml
+package.json</pre><p><b>Technical detail:</b> ${escapeHtml(error.message)}</p></div></section>`;
+ }
+}
+window.addEventListener("hashchange",route);
+document.addEventListener("click",e=>{const row=e.target.closest("[data-player]");if(row) location.hash="#player/"+row.dataset.player});
+document.getElementById("menuBtn").onclick=()=>document.getElementById("nav").classList.toggle("open");
+function navActive(key){document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+key));document.getElementById("nav").classList.remove("open")}
+function route(){if(!DATA)return;let h=location.hash.slice(1)||"home";if(h.startsWith("player/"))return playerPage(h.split("/")[1]);({home,rankings,changes:ratingChanges,players:playersPage,awards,import:importPage,methodology}[h]||home)();navActive(h)}
+function kpi(label,value){return `<div class="kpi"><small>${label}</small><strong>${value}</strong></div>`}
+function signed(n,digits=2){const v=Number(n||0);return `${v>0?"+":""}${v.toFixed(digits)}`}
+function movementIcon(d){return d==="UP"?"▲":d==="DOWN"?"▼":"●"}
+function movementClass(d){return d==="UP"?"changeUp":d==="DOWN"?"changeDown":"changeFlat"}
+function changeCard(p,compact=false){
+ const c=p.ratingChange||{previousRating:p.rating,currentRating:p.rating,delta:0,direction:"UNCHANGED",rankMovement:0,event:"Production Baseline"};
+ return `<article class="changeCard ${movementClass(c.direction)}" data-player="${p.slug}">
+  <div class="changeTop"><div><small>#${p.rank} · ${p.name}</small><strong>${movementIcon(c.direction)} ${signed(c.delta)}</strong></div><span class="badge">${c.event}</span></div>
+  <div class="ratingJourney"><span>${Number(c.previousRating).toFixed(2)}</span><i>→</i><b>${Number(c.currentRating).toFixed(2)}</b></div>
+  ${compact?"":`<p>${escapeHtml(c.explanation)}</p><div class="changeMeta"><span>Rank movement: <b>${c.rankMovement>0?"▲ "+c.rankMovement:c.rankMovement<0?"▼ "+Math.abs(c.rankMovement):"—"}</b></span><span>Confidence: <b>${c.confidence}</b></span></div>`}
+ </article>`;
+}
+function rankingRows(list=DATA.players){return list.map(p=>`<tr data-player="${p.slug}"><td class="rank">#${p.rank}</td><td class="playerName">${p.name}</td><td>${p.rating}</td><td>${badge(p.tier,"tier-"+p.tier)}</td><td class="${p.handicap>0?"pos":p.handicap<0?"neg":""}">${p.handicap>0?"+":""}${p.handicap}</td><td>${p.class}</td><td>${p.matches}</td><td>${p.winRate}%</td><td>${p.status}</td></tr>`).join("")}
+function home(){
+ const p=DATA.players,a=DATA.awards;
+ $("#app").innerHTML=`<section class="hero"><div class="eyebrow">Official padel ranking engine · Volume 1</div><h1>Every Point<br>Matters.</h1><p>Transparent ratings, balanced handicaps and meaningful player insights—powered by verified match data.</p><div class="heroActions"><a class="btn btnGold" href="#rankings">View Official Ranking</a><a class="btn btnGhost" href="#players">Explore Players</a></div></section>
+ <section class="wrap"><div class="kpis">${kpi("Players",DATA.kpis.Players)}${kpi("Valid Matches",DATA.kpis["Valid Matches"])}${kpi("Player Records",DATA.kpis["Player-Match Records"])}${kpi("Top Rating",p[0].rating)}${kpi("Leader",p[0].name)}</div>
+ <div style="height:42px"></div><div class="grid2"><div class="card"><h3>Top 10 Ranking</h3><div class="tableWrap"><table><thead><tr><th>Rank</th><th>Player</th><th>Rating</th><th>Tier</th><th>HC</th><th>Class</th><th>MP</th><th>Win %</th><th>Status</th></tr></thead><tbody>${rankingRows(p.slice(0,10))}</tbody></table></div></div>
+ <div class="card"><h3>Rating Landscape</h3><canvas id="ratingChart" height="260"></canvas></div></div>
+ <div class="sectionHead" style="margin-top:45px"><div><h2>Live Rating Change</h2><p>Official before-and-after movement from the latest approved rating snapshot.</p></div><a class="btn" href="#changes">Open movement center →</a></div>
+ <div class="changeStrip">${p.slice(0,3).map(x=>changeCard(x,true)).join("")}</div>
+ <div class="baselineNotice"><b>Production baseline active.</b> The next approved tournament will generate the first live rating movements.</div>
+ <div class="sectionHead" style="margin-top:45px"><div><h2>Official Awards</h2><p>Automated from transparent statistical rules.</p></div><a class="btn" href="#awards">All awards →</a></div>
+ <div class="cards">${a.slice(0,3).map(x=>awardCard(x)).join("")}</div></section>`;
+ if(window.Chart)new Chart($("#ratingChart"),{type:"bar",data:{labels:p.slice(0,10).map(x=>x.name),datasets:[{label:"FLPR Rating",data:p.slice(0,10).map(x=>x.rating),backgroundColor:"#d9b75f",borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:false,suggestedMin:25}}}});
+}
+function rankings(){
+ $("#app").innerHTML=`<section class="hero" style="padding-top:48px;padding-bottom:48px"><div class="eyebrow">Official table</div><h1 style="font-size:55px">FLPR Ranking</h1><p>Bayesian-adjusted, reliability-weighted composite rating.</p></section><section class="wrap"><div class="sectionHead"><div><h2>All Players</h2><p>Click a player to open the individual profile.</p></div><input id="rankSearch" class="search" placeholder="Search player…"></div><div class="tableWrap"><table><thead><tr><th>Rank</th><th>Player</th><th>Rating</th><th>Tier</th><th>Handicap</th><th>Class</th><th>Matches</th><th>Win Rate</th><th>Status</th></tr></thead><tbody id="rankBody">${rankingRows()}</tbody></table></div></section>`;
+ $("#rankSearch").oninput=e=>{$("#rankBody").innerHTML=rankingRows(DATA.players.filter(p=>p.name.toLowerCase().includes(e.target.value.toLowerCase())))}
+}
+function playersPage(){
+ $("#app").innerHTML=`<section class="hero" style="padding-top:48px;padding-bottom:48px"><div class="eyebrow">Player directory</div><h1 style="font-size:55px">20 Player Profiles</h1><p>Ranking, handicap, match record and advanced performance indicators.</p></section><section class="wrap"><div class="sectionHead"><div><h2>Players</h2><p>Verified FLPR player registry.</p></div><input id="playerSearch" class="search" placeholder="Search player…"></div><div id="playerCards" class="cards">${playerCards(DATA.players)}</div></section>`;
+ $("#playerSearch").oninput=e=>{$("#playerCards").innerHTML=playerCards(DATA.players.filter(p=>p.name.toLowerCase().includes(e.target.value.toLowerCase())))}
+}
+function playerCards(list){return list.map(p=>`<article class="playerCard" data-player="${p.slug}"><div class="avatar">${initials(p.name)}</div><div class="meta">Rank #${p.rank} · ${badge(p.class,"class-"+p.class)}</div><h3>${p.name}</h3><div class="miniStats"><div><b>${p.rating}</b><small>Rating</small></div><div><b>${p.handicap>0?"+":""}${p.handicap}</b><small>Handicap</small></div><div><b>${p.winRate}%</b><small>Win Rate</small></div></div></article>`).join("")}
+function awardCard(x){return `<article class="awardCard"><div class="icon">🏆</div><div class="meta">${x.metric}</div><h3>${x.award}</h3><strong>${x.winner}</strong><p>${x.rule}<br>Runner-up: ${x.runnerUp}</p></article>`}
+function awards(){
+ $("#app").innerHTML=`<section class="hero" style="padding-top:48px;padding-bottom:48px"><div class="eyebrow">Recognition</div><h1 style="font-size:55px">FLPR Awards</h1><p>Official distinctions calculated from the current ranking dataset.</p></section><section class="wrap"><div class="cards">${DATA.awards.map(awardCard).join("")}</div></section>`
+}
+function playerPage(slug){
+ const p=DATA.players.find(x=>x.slug===slug);if(!p)return rankings();
+ $("#app").innerHTML=`<section class="profileHero"><a class="back" href="#players">← All players</a><div class="profileTop"><div class="profileAvatar">${initials(p.name)}</div><div><div class="eyebrow">FLPR Player Profile</div><h1>${p.name}</h1><p>Rank #${p.rank} · Tier ${p.tier} · ${p.status}</p></div></div></section>
+ <section class="wrap"><div class="metricGrid">${metric("FLPR Rating",p.rating)}${metric("Official Handicap",(p.handicap>0?"+":"")+p.handicap)}${metric("Matches",p.matches)}${metric("Win Rate",p.winRate+"%")}</div>
+ <div class="grid2" style="margin-top:20px"><div class="card"><h3>Performance Profile</h3>${bar("Dominance",p.dominance)}${bar("Vs Expectation",p.expectation)}${bar("Schedule Strength",p.sos)}${bar("Consistency",p.consistency)}${bar("Clutch",p.clutch)}${bar("Versatility",p.versatility)}${bar("Recent Form",p.recentForm)}</div>
+ <div class="card"><h3>Player Summary</h3><p class="meta">Class</p><p>${badge(p.class,"class-"+p.class)}</p><p class="meta">Record</p><p><b>${p.wins} wins · ${p.losses} losses</b></p><p class="meta">Adjusted Win Rate</p><p><b>${p.adjustedWinRate}%</b></p><p class="meta">Rating Gap vs Baseline</p><p><b class="${p.gap>=0?"pos":"neg"}">${p.gap>=0?"+":""}${p.gap}</b></p><p class="meta">Primary Format</p><p><b>Weekly Americano</b></p></div></div>
+ ${playerRatingChange(p)}
+ ${analysisBlock(p)}
+ </section>`;
+}
+function playerRatingChange(p){
+ const c=p.ratingChange;if(!c)return "";
+ const positives=(c.positiveFactors||[]).map(x=>`<li><span>${escapeHtml(x.label)}</span><b>${x.value}</b></li>`).join("")||"<li><span>Awaiting next approved tournament</span><b>—</b></li>";
+ const risks=(c.riskFactors||[]).map(x=>`<li><span>${escapeHtml(x.label)}</span><b>${x.value}</b></li>`).join("")||"<li><span>No major statistical risk flagged</span><b>—</b></li>";
+ return `<div class="ratingChangeSection"><div class="sectionHead"><div><h2>Live Rating Change</h2><p>Transparent movement from the previous official snapshot.</p></div><span class="badge">V1.0 Production</span></div>
+ <div class="ratingChangeHero ${movementClass(c.direction)}"><div><small>Previous rating</small><strong>${Number(c.previousRating).toFixed(2)}</strong></div><div class="changeArrow">${movementIcon(c.direction)}<b>${signed(c.delta)}</b></div><div><small>Current rating</small><strong>${Number(c.currentRating).toFixed(2)}</strong></div></div>
+ <div class="grid2" style="margin-top:20px"><article class="card"><h3>Why the rating moved</h3><p class="analysisLead">${escapeHtml(c.explanation)}</p><div class="changeMeta"><span>Event: <b>${escapeHtml(c.event)}</b></span><span>Date: <b>${escapeHtml(c.eventDate)}</b></span><span>Rank movement: <b>${c.rankMovement===0?"No change":signed(c.rankMovement,0)}</b></span></div></article>
+ <article class="card"><h3>Rating Drivers</h3><div class="driverCols"><div><h4>Positive signals</h4><ul>${positives}</ul></div><div><h4>Watch points</h4><ul>${risks}</ul></div></div></article></div></div>`;
+}
+function ratingChanges(){
+ const list=[...DATA.players].sort((a,b)=>(b.ratingChange?.delta||0)-(a.ratingChange?.delta||0));
+ const changed=list.filter(p=>Math.abs(p.ratingChange?.delta||0)>0).length;
+ $("#app").innerHTML=`<section class="hero" style="padding-top:48px;padding-bottom:48px"><div class="eyebrow">FLPR V1.0 Production</div><h1 style="font-size:55px">Live Rating Change</h1><p>See exactly how every approved tournament changes player ratings, rankings and confidence.</p></section>
+ <section class="wrap"><div class="kpis">${kpi("Snapshot",DATA.meta.ratingSnapshot.label)}${kpi("Players tracked",DATA.players.length)}${kpi("Players moved",changed)}${kpi("Latest event","Baseline")}${kpi("Status","Live-ready")}</div>
+ <div class="baselineNotice" style="margin-top:28px"><b>${DATA.meta.ratingSnapshot.label} established on ${DATA.meta.ratingSnapshot.date}.</b> No artificial movement has been created. The first change will appear automatically after an approved tournament is recalculated.</div>
+ <div class="sectionHead" style="margin-top:38px"><div><h2>Player Movement Board</h2><p>Click a player for the full explanation and rating drivers.</p></div><input id="changeSearch" class="search" placeholder="Search player…"></div>
+ <div id="changeCards" class="changeGrid">${list.map(p=>changeCard(p)).join("")}</div></section>`;
+ $("#changeSearch").oninput=e=>{$("#changeCards").innerHTML=list.filter(p=>p.name.toLowerCase().includes(e.target.value.toLowerCase())).map(p=>changeCard(p)).join("")};
+}
+function analysisBlock(p){const a=p.analysis;if(!a)return "";return `<div class="analysisSection"><div class="sectionHead"><div><h2>FLPR Player Analysis</h2><p>Automatically generated from ranking, handicap, partner chemistry and opponent data.</p></div><span class="badge">D2.1 Engine</span></div><div class="analysisGrid"><article class="card analysisMain"><h3>Performance Assessment</h3><p class="analysisLead">${a.summary}</p><div class="analysisCols"><div><h4>Key Strengths</h4><ul>${a.strengths.map(x=>`<li>${cap(x)}</li>`).join("")}</ul></div><div><h4>Development Areas</h4><ul>${a.developmentAreas.map(x=>`<li>${cap(x)}</li>`).join("")}</ul></div></div><div class="coachNote"><b>FLPR Coach Note</b><p>${a.coachNote}</p></div></article><div class="matchupGrid">${relationCard("Best Recorded Partner",a.bestPartner,"chemistryDelta")}${relationCard("Challenging Partner",a.challengingPartner,"chemistryDelta")}${relationCard("Hardest Opponent",a.hardestOpponent,"pointDiffPerMatch")}${relationCard("Favorable Matchup",a.favorableOpponent,"pointDiffPerMatch")}</div></div><div class="card handicapAnalysis"><h3>Handicap Assessment</h3><p>${a.handicapExplanation}</p><small>${a.reliabilityNote}</small></div></div>`}
+function relationCard(title,x,metric){if(!x)return `<article class="relationCard"><small>${title}</small><strong>Insufficient data</strong></article>`;let detail=`${x.matches} match${x.matches===1?"":"es"} · ${x.winRate}% win rate`;if(metric==="chemistryDelta")detail+=` · ${x.chemistryDelta>=0?"+":""}${x.chemistryDelta}% chemistry`;else detail+=` · ${x.pointDiffPerMatch>=0?"+":""}${x.pointDiffPerMatch} pts/match`;return `<article class="relationCard"><small>${title}</small><strong>${x.name}</strong><span>${detail}</span></article>`}
+function cap(x){return x.charAt(0).toUpperCase()+x.slice(1)}
+function metric(a,b){return `<div class="metric"><small>${a}</small><strong>${b}</strong></div>`}
+function bar(a,b){return `<div style="margin:15px 0"><div style="display:flex;justify-content:space-between"><b>${a}</b><span>${fmt(b)}</span></div><div class="bar"><i style="width:${Math.max(0,Math.min(100,b))}%"></i></div></div>`}
+
+function importPage(){
+ const saved=JSON.parse(localStorage.getItem("flprStagingImports")||"[]");
+ $("#app").innerHTML=`<section class="hero" style="padding-top:48px;padding-bottom:48px"><div class="eyebrow">D2.2 Integration</div><h1 style="font-size:55px">Tournament Import</h1><p>Paste an Americano Padel result URL. The tournament is validated and stored in staging first.</p></section>
+ <section class="wrap"><div class="grid2"><div class="card"><h3>Import from Americano Padel</h3><label class="meta" for="americanoUrl">Tournament URL</label><input id="americanoUrl" class="importInput" value="https://americano-padel.com/print/40aeba7f-c69c-4619-ab27-31b53a7b2a88?ln=en"><div class="importActions"><button id="testImport" class="btn btnGold">Test & Parse URL</button><button id="clearImport" class="btn btnGhost">Clear</button></div><p class="importNote">Safety mode: imported tournaments are marked <b>TEST</b> and do not affect official ratings.</p><div id="importStatus"></div></div>
+ <div class="card"><h3>Validation Pipeline</h3><ol class="pipeline"><li>Verify Americano domain and tournament ID</li><li>Fetch the public <code>/print/</code> page</li><li>Parse rounds, teams and scores</li><li>Check duplicate tournament ID</li><li>Compare player names with FLPR registry</li><li>Save to staging for review</li></ol></div></div>
+ <div id="importPreview"></div><div class="sectionHead" style="margin-top:38px"><div><h2>Staging Imports</h2><p>Stored in this browser for integration testing.</p></div></div><div id="stagingList">${renderStaging(saved)}</div></section>`;
+ $("#clearImport").onclick=()=>{$("#americanoUrl").value="";$("#importStatus").innerHTML="";$("#importPreview").innerHTML=""};
+ $("#testImport").onclick=runAmericanoImport;
+}
+async function runAmericanoImport(){
+ const url=$("#americanoUrl").value.trim(), status=$("#importStatus"), btn=$("#testImport");
+ if(!url){status.innerHTML='<p class="errorBox">Enter a tournament URL.</p>';return}
+ btn.disabled=true;btn.textContent="Reading tournament…";status.innerHTML='<p class="infoBox">Connecting to the Americano Padel print page…</p>';
+ try{
+  const res=await fetch('/api/import-americano',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({url})});
+  const result=await res.json();
+  if(!result.ok)throw new Error(result.error||'Import failed');
+  const t=result.tournament;
+  const saved=JSON.parse(localStorage.getItem("flprStagingImports")||"[]");
+  const duplicate=saved.some(x=>x.externalTournamentId.toLowerCase()===t.externalTournamentId.toLowerCase());
+  const registry=new Map(DATA.players.map(p=>[p.name.toLowerCase(),p.name]));
+  const matched=t.players.filter(x=>registry.has(x.toLowerCase()));
+  const unmatched=t.players.filter(x=>!registry.has(x.toLowerCase()));
+  t.integration={duplicate,matchedPlayers:matched,unmatchedPlayers:unmatched,reviewStatus:duplicate?'DUPLICATE':'PENDING_REVIEW'};
+  status.innerHTML=duplicate?'<p class="warningBox">Duplicate tournament ID detected. It was not added again.</p>':'<p class="successBox">Tournament parsed successfully. Review the preview before saving to staging.</p>';
+  $("#importPreview").innerHTML=renderImportPreview(t,result.warnings||[]);
+  const save=$("#saveStaging");if(save&&!duplicate)save.onclick=()=>saveStaging(t);
+ }catch(e){status.innerHTML=`<p class="errorBox"><b>Import could not be completed.</b><br>${escapeHtml(e.message)}<br><small>The URL remains safe; no official FLPR data was changed.</small></p>`}
+ finally{btn.disabled=false;btn.textContent="Test & Parse URL"}
+}
+function renderImportPreview(t,warnings){
+ const s=t.summary, unmatched=t.integration.unmatchedPlayers;
+ return `<div class="card importPreview"><div class="sectionHead"><div><div class="eyebrow">Parsed Preview</div><h2>${escapeHtml(t.title)}</h2><p>${escapeHtml(t.externalTournamentId)}</p></div><span class="badge">${t.status}</span></div><div class="metricGrid">${metric("Rounds",s.rounds)}${metric("Matches",s.matches)}${metric("Completed",s.completedMatches)}${metric("Players",s.players)}</div><div class="grid2" style="margin-top:20px"><div><h3>Player Matching</h3><p><b>${t.integration.matchedPlayers.length}</b> matched to FLPR registry</p><p><b>${unmatched.length}</b> unmatched/new names</p>${unmatched.length?`<div class="nameChips">${unmatched.map(x=>badge(escapeHtml(x),"neg")).join(" ")}</div>`:'<p class="successText">All players matched.</p>'}</div><div><h3>Validation</h3><p>Duplicate: <b>${t.integration.duplicate?'Yes':'No'}</b></p><p>Count toward rating: <b>No</b></p><p>Review status: <b>${t.integration.reviewStatus}</b></p>${warnings.map(x=>`<p class="warningText">${escapeHtml(x)}</p>`).join("")}</div></div><div class="tableWrap" style="margin-top:20px"><table><thead><tr><th>Round</th><th>Court</th><th>Team A</th><th>Score</th><th>Team B</th></tr></thead><tbody>${t.rounds.flatMap(r=>r.matches.map(m=>`<tr><td>${r.round}</td><td>${escapeHtml(m.court||'-')}</td><td>${m.teamA.map(escapeHtml).join(' / ')}</td><td>${m.scoreA==null?'–':m.scoreA+'–'+m.scoreB}</td><td>${m.teamB.map(escapeHtml).join(' / ')}</td></tr>`)).join("")||'<tr><td colspan="5">No match rows recognized.</td></tr>'}</tbody></table></div>${!t.integration.duplicate?'<button id="saveStaging" class="btn btnGold" style="margin-top:20px">Save as TEST in Staging</button>':''}</div>`
+}
+function saveStaging(t){
+ const saved=JSON.parse(localStorage.getItem("flprStagingImports")||"[]");
+ if(!saved.some(x=>x.externalTournamentId.toLowerCase()===t.externalTournamentId.toLowerCase()))saved.unshift(t);
+ localStorage.setItem("flprStagingImports",JSON.stringify(saved.slice(0,25)));
+ $("#stagingList").innerHTML=renderStaging(saved.slice(0,25));
+ $("#importStatus").innerHTML='<p class="successBox">Saved to TEST staging. Official ranking remains unchanged.</p>';
+ const b=$("#saveStaging");if(b)b.remove();
+}
+function renderStaging(list){if(!list.length)return '<div class="emptyState">No staging imports yet.</div>';return `<div class="tableWrap"><table><thead><tr><th>Imported</th><th>Tournament</th><th>Players</th><th>Matches</th><th>Status</th></tr></thead><tbody>${list.map(t=>`<tr><td>${new Date(t.importedAt).toLocaleString()}</td><td>${escapeHtml(t.title)}<br><small>${escapeHtml(t.externalTournamentId)}</small></td><td>${t.summary.players}</td><td>${t.summary.matches}</td><td>${badge(t.integration?.reviewStatus||'TEST')}</td></tr>`).join('')}</tbody></table></div>`}
+function escapeHtml(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+
+function methodology(){
+ $("#app").innerHTML=`<section class="hero" style="padding-top:48px;padding-bottom:48px"><div class="eyebrow">About the system</div><h1 style="font-size:55px">How FLPR Works</h1><p>Fair ranking. Smarter handicaps. Better competition.</p></section><section class="wrap method"><h2>FLPR Rating</h2><p>The official rating combines adjusted win rate, dominance, performance versus expectation, schedule strength, consistency, clutch performance, versatility and recent form. Reliability weighting prevents small samples from being treated as established evidence.</p><h3>Handicap philosophy</h3><p>Positive handicap values identify stronger players; negative values provide balancing support. The primary reference format is Weekly Americano. New players receive a provisional handicap immediately and gain confidence as match volume grows.</p><h3>Status</h3><ul><li><b>Provisional:</b> early rating with limited evidence.</li><li><b>Developing:</b> sufficient match history, still stabilizing.</li><li><b>Established:</b> high-confidence rating supported by broader data.</li></ul><h3>Current dataset</h3><p>${DATA.kpis.Players} players, ${DATA.kpis["Valid Matches"]} valid matches and ${DATA.kpis["Player-Match Records"]} player-match records. Website data is exported from the FLPR Master Workbook v2.6 Phase C Complete.</p></section>`
+}
+boot();
+
+</script>
 </body></html>
