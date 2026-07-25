@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#243447">
 <title>FLPR Premium V1.0 — Every Point Matters</title>
-<link rel="stylesheet" href="/styles.css?v=1.0.0-prod">
+<link rel="stylesheet" href="/styles.css?v=1.0.1-final">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -30,7 +30,7 @@ const fmt=n=>Number(n).toLocaleString(undefined,{maximumFractionDigits:1});
 const badge=(txt,cls="")=>`<span class="badge ${cls}">${txt}</span>`;
 async function boot(){
  try{
-  const response=await fetch("/flpr-data.json?v=1.0.0-prod",{cache:"no-store"});
+  const response=await fetch("/flpr-data.json?v=1.0.1-final",{cache:"no-store"});
   if(!response.ok)throw new Error(`FLPR data returned HTTP ${response.status}`);
   DATA=await response.json();
   route();
@@ -65,16 +65,54 @@ function changeCard(p,compact=false){
 function rankingRows(list=DATA.players){return list.map(p=>`<tr data-player="${p.slug}"><td class="rank">#${p.rank}</td><td class="playerName">${p.name}</td><td>${p.rating}</td><td>${badge(p.tier,"tier-"+p.tier)}</td><td class="${p.handicap>0?"pos":p.handicap<0?"neg":""}">${p.handicap>0?"+":""}${p.handicap}</td><td>${p.class}</td><td>${p.matches}</td><td>${p.winRate}%</td><td>${p.status}</td></tr>`).join("")}
 function home(){
  const p=DATA.players,a=DATA.awards;
- $("#app").innerHTML=`<section class="hero"><div class="eyebrow">Official padel ranking engine · Volume 1</div><h1>Every Point<br>Matters.</h1><p>Transparent ratings, balanced handicaps and meaningful player insights—powered by verified match data.</p><div class="heroActions"><a class="btn btnGold" href="#rankings">View Official Ranking</a><a class="btn btnGhost" href="#players">Explore Players</a></div></section><section class="creditStrip"><b>Designed and Developed by Edy SP</b><span>using OpenAI's ChatGPT technology</span></section>
- <section class="wrap"><div class="kpis">${kpi("Players",DATA.kpis.Players)}${kpi("Valid Matches",DATA.kpis["Valid Matches"])}${kpi("Player Records",DATA.kpis["Player-Match Records"])}${kpi("Top Rating",p[0].rating)}${kpi("Leader",p[0].name)}</div>
- <div style="height:42px"></div><div class="grid2"><div class="card"><h3>Top 10 Ranking</h3><div class="tableWrap"><table><thead><tr><th>Rank</th><th>Player</th><th>Rating</th><th>Tier</th><th>HC</th><th>Class</th><th>MP</th><th>Win %</th><th>Status</th></tr></thead><tbody>${rankingRows(p.slice(0,10))}</tbody></table></div></div>
- <div class="card"><h3>Rating Landscape</h3><canvas id="ratingChart" height="260"></canvas></div></div>
- <div class="sectionHead" style="margin-top:45px"><div><h2>Live Rating Change</h2><p>Official before-and-after movement from the latest approved rating snapshot.</p></div><a class="btn" href="#changes">Open movement center →</a></div>
- <div class="changeStrip">${p.slice(0,3).map(x=>changeCard(x,true)).join("")}</div>
- <div class="baselineNotice"><b>Production baseline active.</b> The next approved tournament will generate the first live rating movements.</div>
- <div class="sectionHead" style="margin-top:45px"><div><h2>Official Awards</h2><p>Automated from transparent statistical rules.</p></div><a class="btn" href="#awards">All awards →</a></div>
- <div class="cards">${a.slice(0,3).map(x=>awardCard(x)).join("")}</div></section>`;
- if(window.Chart)new Chart($("#ratingChart"),{type:"bar",data:{labels:p.slice(0,10).map(x=>x.name),datasets:[{label:"FLPR Rating",data:p.slice(0,10).map(x=>x.rating),backgroundColor:"#d9b75f",borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:false,suggestedMin:25}}}});
+ const featured=p.find(x=>x.slug==="edy-sp")||p[0];
+ const champion=p[0];
+ const totalWins=DATA.kpis["Total Wins"]||p.reduce((s,x)=>s+(x.wins||0),0);
+ const established=DATA.kpis["Established Players"]||p.filter(x=>x.status==="Established").length;
+ const activity=[
+  {icon:"🏆",title:`${champion.name} leads the official ranking`,meta:`FLPR ${champion.rating} · Handicap ${champion.handicap>0?"+":""}${champion.handicap}`},
+  {icon:"📊",title:`${DATA.kpis["Valid Matches"]} verified matches are active`,meta:`${DATA.kpis["Player-Match Records"]} player-match records processed`},
+  {icon:"✅",title:`${established} established player ratings`,meta:"Reliability-weighted status based on verified match volume"},
+  {icon:"📥",title:"Americano import workflow is ready",meta:"New tournaments enter persistent staging before admin approval"}
+ ];
+ const awardItems=a.slice(0,4);
+ const top=p.slice(0,8);
+ $("#app").innerHTML=`<div class="premiumShell">
+  <aside class="premiumSide">
+   <a class="sideLogo" href="#home"><img src="/flpr-logo.png" alt="FLPR"></a>
+   <div class="sideNav">
+    <a class="active" href="#home">⌂ <span>Dashboard</span></a><a href="#rankings">☷ <span>Live Ranking</span></a><a href="#players">♙ <span>Players</span></a><a href="#changes">↗ <span>Live Change</span></a><a href="#awards">♛ <span>Awards</span></a><a href="#import">⇧ <span>Data Import</span></a><a href="#methodology">ⓘ <span>About FLPR</span></a><a href="#appendix">≡ <span>Appendix</span></a>
+   </div>
+   <div class="sideStatement"><b>FLPR SYSTEM</b><p>Fair. Dynamic. Competitive.<br>Built for the Padel Community.</p><small>Every Point Matters</small></div>
+  </aside>
+  <section class="premiumMain">
+   <div class="premiumTop"><div><span class="eyebrow">FLPR Premium v1.0 Final</span><h1>Official Dashboard</h1></div><a class="importGold" href="#import">⇧ Import Data</a></div>
+   <div class="premiumKpis">
+    <article><i>♟</i><small>Total Players</small><strong>${DATA.kpis.Players}</strong><span>Active registry</span></article>
+    <article><i>✓</i><small>Valid Matches</small><strong>${DATA.kpis["Valid Matches"]}</strong><span>Verified records</span></article>
+    <article><i>↗</i><small>Total Wins</small><strong>${totalWins}</strong><span>All-time dataset</span></article>
+    <article><i>★</i><small>Established</small><strong>${established}</strong><span>Reliable ratings</span></article>
+    <article><i>◎</i><small>Balance Index</small><strong>${fmt(DATA.kpis["Competitive Balance Index"])}</strong><span>Competition score</span></article>
+   </div>
+   <div class="dashboardGrid">
+    <section class="darkPanel rankPanel"><div class="panelTitle"><h2>Live Ranking</h2><a href="#rankings">View all</a></div><div class="rankList">${top.map((x,i)=>`<div class="rankLine" data-player="${x.slug}"><span class="rankMedal rank${i+1}">${x.rank}</span>${avatarImg(x,"rankPhoto")}<div><b>${escapeHtml(x.name)}</b><small>FLPR <em>${x.rating}</em></small></div><aside><small>HCP</small><strong>${x.handicap>0?"+":""}${x.handicap}</strong></aside></div>`).join("")}</div><a class="panelButton" href="#rankings">View Full Ranking →</a></section>
+    <section class="darkPanel featurePanel">
+      <div class="featurePhotoWrap">${avatarImg(featured,"featurePhoto")}<span>★ FEATURED PLAYER</span></div>
+      <div class="featureCopy"><div class="featureName"><span>🇮🇩</span><h2>${escapeHtml(featured.name)}</h2><b>RANK #${featured.rank}</b></div><small>FLPR Rating</small><div class="featureRating">${featured.rating}</div><div class="featureMetrics"><div><small>Handicap</small><strong>${featured.handicap>0?"+":""}${featured.handicap}</strong></div><div><small>Win Rate</small><strong>${featured.winRate}%</strong></div><div><small>Matches</small><strong>${featured.matches}</strong></div><div><small>Status</small><strong>${featured.status}</strong></div><div><small>Best Partner</small><strong>${escapeHtml(featured.analysis?.bestPartner?.name||"—")}</strong></div><div><small>Class</small><strong>${featured.class}</strong></div></div><a class="panelButton compact" href="#player/${featured.slug}">Open Full Player Report →</a></div>
+    </section>
+    <section class="darkPanel awardsPanel"><div class="panelTitle"><h2>Achievements</h2><a href="#awards">View all</a></div>${awardItems.map((x,i)=>`<div class="awardLine"><span>${["🏆","⭐","🥇","🔥"][i]||"🏅"}</span><div><b>${escapeHtml(x.award)}</b><small>${escapeHtml(x.winner)} · ${escapeHtml(x.metric)}</small></div></div>`).join("")}</section>
+    <section class="darkPanel chartPanel"><div class="panelTitle"><h2>Rating Landscape</h2><span>Top 8</span></div><canvas id="premiumRatingChart" height="190"></canvas></section>
+    <section class="darkPanel activityPanel"><div class="panelTitle"><h2>Live Activity Feed</h2><span>Production</span></div>${activity.map(x=>`<div class="activityLine"><i>${x.icon}</i><div><b>${escapeHtml(x.title)}</b><small>${escapeHtml(x.meta)}</small></div></div>`).join("")}<a class="panelButton" href="#changes">Open Live Rating Center →</a></section>
+   </div>
+   <div class="bottomDash">
+    <section class="darkPanel miniShow"><div class="panelTitle"><h2>Top Players</h2><a href="#rankings">Full table</a></div><div class="faceRow">${p.slice(0,5).map(x=>`<div data-player="${x.slug}">${avatarImg(x,"miniFace")}<b>${escapeHtml(x.name)}</b><small>${x.rating}</small></div>`).join("")}</div></section>
+    <section class="darkPanel miniShow"><div class="panelTitle"><h2>Rating Readiness</h2><span>v1.0</span></div><div class="readiness"><strong>${established}/${DATA.kpis.Players}</strong><span>players are established</span><div class="readinessBar"><i style="width:${Math.round(established/DATA.kpis.Players*100)}%"></i></div><small>Provisional players remain active while confidence grows.</small></div></section>
+    <section class="darkPanel miniShow"><div class="panelTitle"><h2>Americano Integration</h2><a href="#import">Open</a></div><div class="integrationReady"><i>✓</i><div><b>Persistent staging enabled</b><small>Parse · Validate · Review · Approve</small></div></div><p class="integrationNote">Official ratings remain unchanged until the FLPR calculation engine processes an approved tournament.</p></section>
+   </div>
+   <div class="dashboardCredit"><b>Designed and Developed by Edy SP</b><span>using OpenAI's ChatGPT technology</span></div>
+  </section>
+ </div>`;
+ if(window.Chart){new Chart($("#premiumRatingChart"),{type:"line",data:{labels:top.map(x=>x.name),datasets:[{label:"FLPR Rating",data:top.map(x=>x.rating),borderColor:"#e7bf4c",backgroundColor:"rgba(231,191,76,.16)",fill:true,tension:.32,pointRadius:4,pointBackgroundColor:"#f3cf61"}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:{color:"#9fb0c3"},grid:{display:false}},y:{ticks:{color:"#9fb0c3"},grid:{color:"rgba(255,255,255,.07)"}}}}})}
 }
 function rankings(){
  $("#app").innerHTML=`<section class="hero" style="padding-top:48px;padding-bottom:48px"><div class="eyebrow">Official table</div><h1 style="font-size:55px">FLPR Ranking</h1><p>Bayesian-adjusted, reliability-weighted composite rating.</p></section><section class="wrap"><div class="sectionHead"><div><h2>All Players</h2><p>Click a player to open the individual profile.</p></div><input id="rankSearch" class="search" placeholder="Search player…"></div><div class="tableWrap"><table><thead><tr><th>Rank</th><th>Player</th><th>Rating</th><th>Tier</th><th>Handicap</th><th>Class</th><th>Matches</th><th>Win Rate</th><th>Status</th></tr></thead><tbody id="rankBody">${rankingRows()}</tbody></table></div></section>`;

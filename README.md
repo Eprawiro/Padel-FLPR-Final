@@ -1,18 +1,18 @@
-# FLPR Premium v1.0
+# FLPR Premium v1.0 Final
 
-Every Point Matters.
+Production-ready mobile-upload package for Netlify.
+
+## Final dashboard
+- Premium navy-and-gold dashboard is now the default Home page.
+- Uses verified FLPR data only.
+- Natural original player photos are preserved.
+- Players without photos use the standard padel avatar.
+- Includes a live activity feed, rating landscape, featured player card, achievements, ranking readiness, and Americano integration status.
+
+## Americano workflow
+Tournament URL → parse → persistent staging → validation → admin approval. Official rating changes are not invented; approved tournaments must be processed by the FLPR calculation engine.
+
+## Required Netlify variable
+`FLPR_ADMIN_KEY`
 
 Designed and Developed by Edy SP using OpenAI's ChatGPT technology.
-
-## Included
-- Natural original photos for Michael, Edy SP, Ronald, Thohir, Alwin, Donny, Austin and Welly
-- Standard padel-player avatar for players without an official photo
-- Premium FLPR logo
-- Appendix with definitions and methodology
-- Persistent Americano Padel staging and approval using Netlify Blobs
-
-## Required Netlify environment variable
-Create `FLPR_ADMIN_KEY` in Netlify Project configuration > Environment variables. This key is required to approve or reject imported tournaments.
-
-## Important
-Approved tournaments are stored permanently. Official rating and handicap recalculation must still be performed by the FLPR calculation engine; this release deliberately does not fabricate rating movement.
