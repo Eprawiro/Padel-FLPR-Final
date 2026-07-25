@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="FLPR standard padel player avatar">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07172a"/><stop offset="1" stop-color="#173a5d"/></linearGradient></defs>
+  <rect width="256" height="256" rx="128" fill="url(#g)"/>
+  <circle cx="128" cy="88" r="42" fill="#d9b75f" opacity=".95"/>
+  <path d="M55 216c8-51 35-78 73-78s65 27 73 78" fill="#d9b75f" opacity=".95"/>
+  <g transform="translate(168 40) rotate(22)">
+    <ellipse cx="0" cy="0" rx="28" ry="38" fill="none" stroke="#fff" stroke-width="8"/>
+    <circle cx="-10" cy="-10" r="3" fill="#fff"/><circle cx="8" cy="-14" r="3" fill="#fff"/><circle cx="-4" cy="6" r="3" fill="#fff"/><circle cx="12" cy="8" r="3" fill="#fff"/>
+    <path d="M0 38v40" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,9 +1,10 @@
 {
-  "name": "flpr-website-d22",
-  "version": "2.2.0",
+  "name": "flpr-premium-v1",
+  "version": "1.0.0",
   "private": true,
-  "description": "FLPR website with Americano Padel staging importer",
+  "description": "FLPR Premium v1.0 with persistent Americano Padel review workflow",
   "dependencies": {
-    "cheerio": "1.0.0"
+    "cheerio": "1.0.0",
+    "@netlify/blobs": "10.7.9"
   }
 }
