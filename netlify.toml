@@ -1,0 +1,18 @@
+[build]
+command = "echo 'Static FLPR site — no build required'"
+publish = "."
+functions = "netlify/functions"
+
+[functions]
+node_bundler = "esbuild"
+
+[[redirects]]
+from = "/api/import-americano"
+to = "/.netlify/functions/import-americano"
+status = 200
+force = true
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

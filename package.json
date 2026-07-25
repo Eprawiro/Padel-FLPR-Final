@@ -1,0 +1,9 @@
+{
+  "name": "flpr-website-d22",
+  "version": "2.2.0",
+  "private": true,
+  "description": "FLPR website with Americano Padel staging importer",
+  "dependencies": {
+    "cheerio": "1.0.0"
+  }
+}

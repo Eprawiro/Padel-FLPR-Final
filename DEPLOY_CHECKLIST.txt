@@ -1,0 +1,25 @@
+FLPR D2.2 FIXED DEPLOYMENT
+
+IMPORTANT:
+Upload the FILES in this folder to the ROOT of the GitHub repository.
+Do not upload the parent folder as a second nested level.
+
+The repository root must show:
+- index.html
+- app.js
+- styles.css
+- data/
+- netlify/
+- netlify.toml
+- package.json
+
+Netlify settings:
+Base directory: leave empty
+Build command: use configuration from netlify.toml
+Publish directory: .
+Functions directory: netlify/functions
+
+After deployment test:
+1. https://YOUR-SITE.netlify.app/data/flpr-data.json
+2. https://YOUR-SITE.netlify.app/#home
+3. https://YOUR-SITE.netlify.app/#import
