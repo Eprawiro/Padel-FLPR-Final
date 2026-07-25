@@ -1,1 +1,2114 @@
-
+{
+  "meta": {
+    "title": "FLPR",
+    "slogan": "Every Point Matters",
+    "volume": "Volume 1",
+    "generated": "2026-07-25",
+    "sourceWorkbook": "FLPR_Master_Workbook_v2.6_PhaseC_Complete.xlsx",
+    "d21": "Individual Player Analysis Engine v1",
+    "version": "FLPR V1.0 Production",
+    "theme": "Army Blue",
+    "ratingSnapshot": {
+      "snapshotId": "FLPR-V1-BASELINE-20260725",
+      "label": "Production Baseline",
+      "date": "2026-07-25",
+      "source": "FLPR Master Workbook v2.6 Phase C Complete",
+      "note": "This is the first official production snapshot. Rating movement begins with the next approved tournament."
+    }
+  },
+  "kpis": {
+    "Players": 20,
+    "Valid Matches": 57,
+    "Player-Match Records": 228,
+    "Total Wins": 114,
+    "Average Matches / Player": 11.4,
+    "Average Win Rate": 0.49,
+    "Average Rating": 47.73,
+    "Rating Spread": 39.1,
+    "Established Players": 9,
+    "Competitive Balance Index": 78.83
+  },
+  "players": [
+    {
+      "rank": 1,
+      "name": "Sandy",
+      "slug": "sandy",
+      "matches": 13,
+      "wins": 11,
+      "losses": 2,
+      "winRate": 84.6,
+      "adjustedWinRate": 71.4,
+      "dominance": 100.0,
+      "expectation": 85.7,
+      "sos": 50.2,
+      "consistency": 51.8,
+      "clutch": 50.0,
+      "versatility": 53.8,
+      "recentForm": 80.0,
+      "rating": 70.51,
+      "tier": "A",
+      "gap": 20.51,
+      "status": "Established",
+      "handicap": 3,
+      "class": "Elite",
+      "analysis": {
+        "summary": "Sandy is currently performing as a high-impact competitor, combining a 84.6% win rate with an FLPR rating of 70.51. The rating is established and supported by a comparatively reliable match sample.",
+        "strengths": [
+          "point dominance",
+          "performance above expectation",
+          "recent form"
+        ],
+        "developmentAreas": [
+          "incremental match conversion"
+        ],
+        "bestPartner": {
+          "name": "Edy SP",
+          "matches": 2,
+          "winRate": 100.0,
+          "chemistryDelta": 34.4,
+          "pointDiffPerMatch": 2.0
+        },
+        "challengingPartner": {
+          "name": "Ricky",
+          "matches": 2,
+          "winRate": 100.0,
+          "chemistryDelta": 26.9
+        },
+        "hardestOpponent": {
+          "name": "Austin",
+          "matches": 4,
+          "winRate": 50.0,
+          "pointDiffPerMatch": 0.5
+        },
+        "favorableOpponent": {
+          "name": "Kennard",
+          "matches": 2,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 4.0
+        },
+        "handicapExplanation": "The +3 handicap identifies Sandy as a stronger player who should concede balancing support in mixed-level competition.",
+        "coachNote": "Priority: preserve the current performance base and focus on small gains in decision quality.",
+        "reliabilityNote": "The rating is established and supported by a comparatively reliable match sample.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 70.51,
+        "currentRating": 70.51,
+        "delta": 0.0,
+        "previousRank": 1,
+        "currentRank": 1,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Established",
+        "positiveFactors": [
+          {
+            "label": "Strong recent form",
+            "value": 80.0
+          },
+          {
+            "label": "High point dominance",
+            "value": 100.0
+          },
+          {
+            "label": "Performance above expectation",
+            "value": 85.7
+          }
+        ],
+        "riskFactors": [],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 2,
+      "name": "Thohir",
+      "slug": "thohir",
+      "matches": 4,
+      "wins": 4,
+      "losses": 0,
+      "winRate": 100.0,
+      "adjustedWinRate": 66.7,
+      "dominance": 66.0,
+      "expectation": 100.0,
+      "sos": 28.2,
+      "consistency": 97.3,
+      "clutch": 62.5,
+      "versatility": 5.2,
+      "recentForm": 100.0,
+      "rating": 64.67,
+      "tier": "B",
+      "gap": 14.67,
+      "status": "Provisional",
+      "handicap": 1,
+      "class": "A",
+      "analysis": {
+        "summary": "Thohir is currently performing as a high-impact competitor, combining a 100.0% win rate with an FLPR rating of 64.67. The rating remains provisional, so conclusions should be treated as early signals until more matches are recorded.",
+        "strengths": [
+          "recent form",
+          "performance above expectation",
+          "match-to-match consistency"
+        ],
+        "developmentAreas": [
+          "partner versatility",
+          "ability against demanding opposition"
+        ],
+        "bestPartner": {
+          "name": "Welly",
+          "matches": 1,
+          "winRate": 100.0,
+          "chemistryDelta": 40.0,
+          "pointDiffPerMatch": 3.0
+        },
+        "challengingPartner": {
+          "name": "Ronald",
+          "matches": 1,
+          "winRate": 100.0,
+          "chemistryDelta": 16.7
+        },
+        "hardestOpponent": {
+          "name": "Ronald",
+          "matches": 2,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 1.5
+        },
+        "favorableOpponent": {
+          "name": "Edy SP",
+          "matches": 2,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 3.0
+        },
+        "handicapExplanation": "The +1 handicap identifies Thohir as a stronger player who should concede balancing support in mixed-level competition.",
+        "coachNote": "Priority: preserve the current performance base and focus on small gains in decision quality.",
+        "reliabilityNote": "The rating remains provisional, so conclusions should be treated as early signals until more matches are recorded.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 64.67,
+        "currentRating": 64.67,
+        "delta": 0.0,
+        "previousRank": 2,
+        "currentRank": 2,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Provisional",
+        "positiveFactors": [
+          {
+            "label": "Strong recent form",
+            "value": 100.0
+          },
+          {
+            "label": "Performance above expectation",
+            "value": 100.0
+          },
+          {
+            "label": "Reliable consistency",
+            "value": 97.3
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low difficult schedule",
+            "value": 28.2
+          },
+          {
+            "label": "Low partner versatility",
+            "value": 5.2
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 3,
+      "name": "Austin",
+      "slug": "austin",
+      "matches": 14,
+      "wins": 9,
+      "losses": 5,
+      "winRate": 64.3,
+      "adjustedWinRate": 59.1,
+      "dominance": 82.4,
+      "expectation": 63.3,
+      "sos": 60.0,
+      "consistency": 19.2,
+      "clutch": 43.8,
+      "versatility": 59.2,
+      "recentForm": 80.0,
+      "rating": 59.4,
+      "tier": "B",
+      "gap": 9.4,
+      "status": "Established",
+      "handicap": 0,
+      "class": "B+",
+      "analysis": {
+        "summary": "Austin is a competitive and generally positive performer, with a 64.3% win rate and an FLPR rating of 59.40. The rating is established and supported by a comparatively reliable match sample.",
+        "strengths": [
+          "point dominance",
+          "recent form"
+        ],
+        "developmentAreas": [
+          "match-to-match consistency"
+        ],
+        "bestPartner": {
+          "name": "Edy SP",
+          "matches": 2,
+          "winRate": 0.0,
+          "chemistryDelta": -55.5,
+          "pointDiffPerMatch": -2.0
+        },
+        "challengingPartner": {
+          "name": "Edy SP",
+          "matches": 2,
+          "winRate": 0.0,
+          "chemistryDelta": -55.5
+        },
+        "hardestOpponent": {
+          "name": "Michael",
+          "matches": 2,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -3.0
+        },
+        "favorableOpponent": {
+          "name": "Ricky",
+          "matches": 3,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 4.33
+        },
+        "handicapExplanation": "The neutral handicap indicates that the player currently sits close to the central competitive reference level.",
+        "coachNote": "Priority: reduce score volatility by using clearer percentage patterns under pressure.",
+        "reliabilityNote": "The rating is established and supported by a comparatively reliable match sample.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 59.4,
+        "currentRating": 59.4,
+        "delta": 0.0,
+        "previousRank": 3,
+        "currentRank": 3,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Established",
+        "positiveFactors": [
+          {
+            "label": "Strong recent form",
+            "value": 80.0
+          },
+          {
+            "label": "High point dominance",
+            "value": 82.4
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low reliable consistency",
+            "value": 19.2
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 4,
+      "name": "Rey",
+      "slug": "rey",
+      "matches": 7,
+      "wins": 5,
+      "losses": 2,
+      "winRate": 71.4,
+      "adjustedWinRate": 60.0,
+      "dominance": 73.2,
+      "expectation": 70.9,
+      "sos": 58.9,
+      "consistency": 47.1,
+      "clutch": 50.0,
+      "versatility": 23.2,
+      "recentForm": 80.0,
+      "rating": 59.37,
+      "tier": "B",
+      "gap": 9.37,
+      "status": "Developing",
+      "handicap": 0,
+      "class": "B+",
+      "analysis": {
+        "summary": "Rey is currently performing as a high-impact competitor, combining a 71.4% win rate with an FLPR rating of 59.37. The rating is developing and should become more stable as the match sample grows.",
+        "strengths": [
+          "recent form",
+          "point dominance",
+          "performance above expectation"
+        ],
+        "developmentAreas": [
+          "partner versatility"
+        ],
+        "bestPartner": {
+          "name": "Nico",
+          "matches": 1,
+          "winRate": 100.0,
+          "chemistryDelta": 47.6,
+          "pointDiffPerMatch": 3.0
+        },
+        "challengingPartner": {
+          "name": "Michael",
+          "matches": 1,
+          "winRate": 0.0,
+          "chemistryDelta": -58.8
+        },
+        "hardestOpponent": {
+          "name": "Ronald",
+          "matches": 2,
+          "winRate": 50.0,
+          "pointDiffPerMatch": 0.0
+        },
+        "favorableOpponent": {
+          "name": "Nico",
+          "matches": 2,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 3.5
+        },
+        "handicapExplanation": "The neutral handicap indicates that the player currently sits close to the central competitive reference level.",
+        "coachNote": "Priority: preserve the current performance base and focus on small gains in decision quality.",
+        "reliabilityNote": "The rating is developing and should become more stable as the match sample grows.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 59.37,
+        "currentRating": 59.37,
+        "delta": 0.0,
+        "previousRank": 4,
+        "currentRank": 4,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Developing",
+        "positiveFactors": [
+          {
+            "label": "Strong recent form",
+            "value": 80.0
+          },
+          {
+            "label": "High point dominance",
+            "value": 73.2
+          },
+          {
+            "label": "Performance above expectation",
+            "value": 70.9
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low partner versatility",
+            "value": 23.2
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 5,
+      "name": "Ronald",
+      "slug": "ronald",
+      "matches": 18,
+      "wins": 12,
+      "losses": 6,
+      "winRate": 66.7,
+      "adjustedWinRate": 61.5,
+      "dominance": 63.8,
+      "expectation": 62.8,
+      "sos": 52.2,
+      "consistency": 43.6,
+      "clutch": 54.2,
+      "versatility": 69.3,
+      "recentForm": 60.0,
+      "rating": 58.39,
+      "tier": "B",
+      "gap": 8.39,
+      "status": "Established",
+      "handicap": 0,
+      "class": "B+",
+      "analysis": {
+        "summary": "Ronald is a competitive and generally positive performer, with a 66.7% win rate and an FLPR rating of 58.39. The rating is established and supported by a comparatively reliable match sample.",
+        "strengths": [
+          "competitive experience and current rating base"
+        ],
+        "developmentAreas": [
+          "incremental match conversion"
+        ],
+        "bestPartner": {
+          "name": "Alice",
+          "matches": 2,
+          "winRate": 50.0,
+          "chemistryDelta": 13.1,
+          "pointDiffPerMatch": 0.0
+        },
+        "challengingPartner": {
+          "name": "David",
+          "matches": 2,
+          "winRate": 50.0,
+          "chemistryDelta": -4.2
+        },
+        "hardestOpponent": {
+          "name": "Thohir",
+          "matches": 2,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -1.5
+        },
+        "favorableOpponent": {
+          "name": "Welly",
+          "matches": 2,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 3.5
+        },
+        "handicapExplanation": "The neutral handicap indicates that the player currently sits close to the central competitive reference level.",
+        "coachNote": "Priority: preserve the current performance base and focus on small gains in decision quality.",
+        "reliabilityNote": "The rating is established and supported by a comparatively reliable match sample.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 58.39,
+        "currentRating": 58.39,
+        "delta": 0.0,
+        "previousRank": 5,
+        "currentRank": 5,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Established",
+        "positiveFactors": [],
+        "riskFactors": [],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 6,
+      "name": "Ricky",
+      "slug": "ricky",
+      "matches": 26,
+      "wins": 16,
+      "losses": 10,
+      "winRate": 61.5,
+      "adjustedWinRate": 58.8,
+      "dominance": 63.8,
+      "expectation": 56.1,
+      "sos": 41.5,
+      "consistency": 9.3,
+      "clutch": 61.1,
+      "versatility": 89.8,
+      "recentForm": 60.0,
+      "rating": 54.09,
+      "tier": "C",
+      "gap": 4.09,
+      "status": "Established",
+      "handicap": -1,
+      "class": "B",
+      "analysis": {
+        "summary": "Ricky is a competitive and generally positive performer, with a 61.5% win rate and an FLPR rating of 54.09. The rating is established and supported by a comparatively reliable match sample.",
+        "strengths": [
+          "partner versatility"
+        ],
+        "developmentAreas": [
+          "match-to-match consistency"
+        ],
+        "bestPartner": {
+          "name": "Rizky",
+          "matches": 2,
+          "winRate": 100.0,
+          "chemistryDelta": 35.9,
+          "pointDiffPerMatch": 3.0
+        },
+        "challengingPartner": {
+          "name": "Hansen",
+          "matches": 2,
+          "winRate": 0.0,
+          "chemistryDelta": -30.8
+        },
+        "hardestOpponent": {
+          "name": "Austin",
+          "matches": 3,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -4.33
+        },
+        "favorableOpponent": {
+          "name": "Kennard",
+          "matches": 2,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 5.0
+        },
+        "handicapExplanation": "The -1 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: reduce score volatility by using clearer percentage patterns under pressure.",
+        "reliabilityNote": "The rating is established and supported by a comparatively reliable match sample.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 54.09,
+        "currentRating": 54.09,
+        "delta": 0.0,
+        "previousRank": 6,
+        "currentRank": 6,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Established",
+        "positiveFactors": [
+          {
+            "label": "Partner versatility",
+            "value": 89.8
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low reliable consistency",
+            "value": 9.3
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 7,
+      "name": "Jonathan",
+      "slug": "jonathan",
+      "matches": 6,
+      "wins": 4,
+      "losses": 2,
+      "winRate": 66.7,
+      "adjustedWinRate": 57.1,
+      "dominance": 56.4,
+      "expectation": 62.2,
+      "sos": 58.0,
+      "consistency": 0.0,
+      "clutch": 75.0,
+      "versatility": 20.5,
+      "recentForm": 80.0,
+      "rating": 51.86,
+      "tier": "C",
+      "gap": 1.86,
+      "status": "Developing",
+      "handicap": -1,
+      "class": "B",
+      "analysis": {
+        "summary": "Jonathan is a competitive and generally positive performer, with a 66.7% win rate and an FLPR rating of 51.86. The rating is developing and should become more stable as the match sample grows.",
+        "strengths": [
+          "recent form",
+          "clutch execution"
+        ],
+        "developmentAreas": [
+          "match-to-match consistency",
+          "partner versatility"
+        ],
+        "bestPartner": {
+          "name": "Donny",
+          "matches": 1,
+          "winRate": 100.0,
+          "chemistryDelta": 48.5,
+          "pointDiffPerMatch": 1.0
+        },
+        "challengingPartner": {
+          "name": "Edy SP",
+          "matches": 1,
+          "winRate": 0.0,
+          "chemistryDelta": -56.7
+        },
+        "hardestOpponent": {
+          "name": "Austin",
+          "matches": 2,
+          "winRate": 50.0,
+          "pointDiffPerMatch": -1.0
+        },
+        "favorableOpponent": {
+          "name": "Alice",
+          "matches": 2,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 3.0
+        },
+        "handicapExplanation": "The -1 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: reduce score volatility by using clearer percentage patterns under pressure.",
+        "reliabilityNote": "The rating is developing and should become more stable as the match sample grows.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 51.86,
+        "currentRating": 51.86,
+        "delta": 0.0,
+        "previousRank": 7,
+        "currentRank": 7,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Developing",
+        "positiveFactors": [
+          {
+            "label": "Strong recent form",
+            "value": 80.0
+          },
+          {
+            "label": "Clutch performance",
+            "value": 75.0
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low reliable consistency",
+            "value": 0.0
+          },
+          {
+            "label": "Low partner versatility",
+            "value": 20.5
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 8,
+      "name": "Kennard",
+      "slug": "kennard",
+      "matches": 13,
+      "wins": 9,
+      "losses": 4,
+      "winRate": 69.2,
+      "adjustedWinRate": 61.9,
+      "dominance": 40.1,
+      "expectation": 66.6,
+      "sos": 50.3,
+      "consistency": 6.6,
+      "clutch": 70.0,
+      "versatility": 51.3,
+      "recentForm": 40.0,
+      "rating": 50.29,
+      "tier": "C",
+      "gap": 0.29,
+      "status": "Established",
+      "handicap": -1,
+      "class": "B",
+      "analysis": {
+        "summary": "Kennard is a competitive and generally positive performer, with a 69.2% win rate and an FLPR rating of 50.29. The rating is established and supported by a comparatively reliable match sample.",
+        "strengths": [
+          "clutch execution",
+          "performance above expectation"
+        ],
+        "developmentAreas": [
+          "match-to-match consistency"
+        ],
+        "bestPartner": {
+          "name": "Michael",
+          "matches": 2,
+          "winRate": 100.0,
+          "chemistryDelta": 42.3,
+          "pointDiffPerMatch": 2.5
+        },
+        "challengingPartner": {
+          "name": "Ricky",
+          "matches": 2,
+          "winRate": 100.0,
+          "chemistryDelta": 34.6
+        },
+        "hardestOpponent": {
+          "name": "Ricky",
+          "matches": 2,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -5.0
+        },
+        "favorableOpponent": {
+          "name": "Reza",
+          "matches": 2,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 3.0
+        },
+        "handicapExplanation": "The -1 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: reduce score volatility by using clearer percentage patterns under pressure.",
+        "reliabilityNote": "The rating is established and supported by a comparatively reliable match sample.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 50.29,
+        "currentRating": 50.29,
+        "delta": 0.0,
+        "previousRank": 8,
+        "currentRank": 8,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Established",
+        "positiveFactors": [
+          {
+            "label": "Performance above expectation",
+            "value": 66.6
+          },
+          {
+            "label": "Clutch performance",
+            "value": 70.0
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low reliable consistency",
+            "value": 6.6
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 9,
+      "name": "Rizky",
+      "slug": "rizky",
+      "matches": 6,
+      "wins": 4,
+      "losses": 2,
+      "winRate": 66.7,
+      "adjustedWinRate": 57.1,
+      "dominance": 68.0,
+      "expectation": 58.3,
+      "sos": 0.0,
+      "consistency": 30.1,
+      "clutch": 50.0,
+      "versatility": 0.0,
+      "recentForm": 80.0,
+      "rating": 49.19,
+      "tier": "C",
+      "gap": -0.81,
+      "status": "Developing",
+      "handicap": -2,
+      "class": "C+",
+      "analysis": {
+        "summary": "Rizky is a competitive and generally positive performer, with a 66.7% win rate and an FLPR rating of 49.19. The rating is developing and should become more stable as the match sample grows.",
+        "strengths": [
+          "recent form"
+        ],
+        "developmentAreas": [
+          "ability against demanding opposition",
+          "partner versatility",
+          "match-to-match consistency"
+        ],
+        "bestPartner": {
+          "name": "Edy SP",
+          "matches": 2,
+          "winRate": 100.0,
+          "chemistryDelta": 43.3,
+          "pointDiffPerMatch": 2.0
+        },
+        "challengingPartner": {
+          "name": "Hansen",
+          "matches": 2,
+          "winRate": 0.0,
+          "chemistryDelta": -33.3
+        },
+        "hardestOpponent": {
+          "name": "Ricky",
+          "matches": 4,
+          "winRate": 50.0,
+          "pointDiffPerMatch": -0.25
+        },
+        "favorableOpponent": {
+          "name": "Hansen",
+          "matches": 4,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 2.5
+        },
+        "handicapExplanation": "The -2 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: reduce score volatility by using clearer percentage patterns under pressure.",
+        "reliabilityNote": "The rating is developing and should become more stable as the match sample grows.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 49.19,
+        "currentRating": 49.19,
+        "delta": 0.0,
+        "previousRank": 9,
+        "currentRank": 9,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Developing",
+        "positiveFactors": [
+          {
+            "label": "Strong recent form",
+            "value": 80.0
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low difficult schedule",
+            "value": 0.0
+          },
+          {
+            "label": "Low reliable consistency",
+            "value": 30.1
+          },
+          {
+            "label": "Low partner versatility",
+            "value": 0.0
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 10,
+      "name": "Edy SP",
+      "slug": "edy-sp",
+      "matches": 30,
+      "wins": 14,
+      "losses": 16,
+      "winRate": 46.7,
+      "adjustedWinRate": 47.4,
+      "dominance": 41.5,
+      "expectation": 41.7,
+      "sos": 59.8,
+      "consistency": 19.3,
+      "clutch": 37.5,
+      "versatility": 100.0,
+      "recentForm": 40.0,
+      "rating": 45.9,
+      "tier": "C",
+      "gap": -4.1,
+      "status": "Established",
+      "handicap": -2,
+      "class": "C+",
+      "analysis": {
+        "summary": "Edy SP is operating in a competitive middle band. The current 46.7% win rate leaves clear upside if close matches can be converted more consistently. The rating is established and supported by a comparatively reliable match sample.",
+        "strengths": [
+          "partner versatility"
+        ],
+        "developmentAreas": [
+          "match-to-match consistency",
+          "clutch execution"
+        ],
+        "bestPartner": {
+          "name": "Rizky",
+          "matches": 2,
+          "winRate": 100.0,
+          "chemistryDelta": 43.3,
+          "pointDiffPerMatch": 2.0
+        },
+        "challengingPartner": {
+          "name": "Austin",
+          "matches": 2,
+          "winRate": 0.0,
+          "chemistryDelta": -55.5
+        },
+        "hardestOpponent": {
+          "name": "Sandy",
+          "matches": 3,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -3.67
+        },
+        "favorableOpponent": {
+          "name": "Nico",
+          "matches": 2,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 3.5
+        },
+        "handicapExplanation": "The -2 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: reduce score volatility by using clearer percentage patterns under pressure; practice end-of-game decisions and first-ball discipline in decisive points.",
+        "reliabilityNote": "The rating is established and supported by a comparatively reliable match sample.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 45.9,
+        "currentRating": 45.9,
+        "delta": 0.0,
+        "previousRank": 10,
+        "currentRank": 10,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Established",
+        "positiveFactors": [
+          {
+            "label": "Partner versatility",
+            "value": 100.0
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low reliable consistency",
+            "value": 19.3
+          },
+          {
+            "label": "Low clutch performance",
+            "value": 37.5
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 11,
+      "name": "Michael",
+      "slug": "michael",
+      "matches": 13,
+      "wins": 6,
+      "losses": 7,
+      "winRate": 46.2,
+      "adjustedWinRate": 47.6,
+      "dominance": 42.6,
+      "expectation": 41.4,
+      "sos": 61.4,
+      "consistency": 19.3,
+      "clutch": 50.0,
+      "versatility": 48.7,
+      "recentForm": 60.0,
+      "rating": 45.67,
+      "tier": "C",
+      "gap": -4.33,
+      "status": "Established",
+      "handicap": -2,
+      "class": "C+",
+      "analysis": {
+        "summary": "Michael is operating in a competitive middle band. The current 46.2% win rate leaves clear upside if close matches can be converted more consistently. The rating is established and supported by a comparatively reliable match sample.",
+        "strengths": [
+          "competitive experience and current rating base"
+        ],
+        "developmentAreas": [
+          "match-to-match consistency"
+        ],
+        "bestPartner": {
+          "name": "Kennard",
+          "matches": 2,
+          "winRate": 100.0,
+          "chemistryDelta": 42.3,
+          "pointDiffPerMatch": 2.5
+        },
+        "challengingPartner": {
+          "name": "Edy SP",
+          "matches": 2,
+          "winRate": 0.0,
+          "chemistryDelta": -46.4
+        },
+        "hardestOpponent": {
+          "name": "Kennard",
+          "matches": 3,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -2.67
+        },
+        "favorableOpponent": {
+          "name": "Austin",
+          "matches": 2,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 3.0
+        },
+        "handicapExplanation": "The -2 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: reduce score volatility by using clearer percentage patterns under pressure.",
+        "reliabilityNote": "The rating is established and supported by a comparatively reliable match sample.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 45.67,
+        "currentRating": 45.67,
+        "delta": 0.0,
+        "previousRank": 11,
+        "currentRank": 11,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Established",
+        "positiveFactors": [],
+        "riskFactors": [
+          {
+            "label": "Low reliable consistency",
+            "value": 19.3
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 12,
+      "name": "Nicholas",
+      "slug": "nicholas",
+      "matches": 7,
+      "wins": 3,
+      "losses": 4,
+      "winRate": 42.9,
+      "adjustedWinRate": 46.7,
+      "dominance": 28.8,
+      "expectation": 40.9,
+      "sos": 78.1,
+      "consistency": 47.1,
+      "clutch": 50.0,
+      "versatility": 25.7,
+      "recentForm": 40.0,
+      "rating": 45.28,
+      "tier": "C",
+      "gap": -4.72,
+      "status": "Developing",
+      "handicap": -2,
+      "class": "C+",
+      "analysis": {
+        "summary": "Nicholas is operating in a competitive middle band. The current 42.9% win rate leaves clear upside if close matches can be converted more consistently. The rating is developing and should become more stable as the match sample grows.",
+        "strengths": [
+          "ability against demanding opposition"
+        ],
+        "developmentAreas": [
+          "partner versatility",
+          "point dominance"
+        ],
+        "bestPartner": {
+          "name": "Edy SP",
+          "matches": 1,
+          "winRate": 100.0,
+          "chemistryDelta": 55.2,
+          "pointDiffPerMatch": 3.0
+        },
+        "challengingPartner": {
+          "name": "Jonathan",
+          "matches": 1,
+          "winRate": 0.0,
+          "chemistryDelta": -54.8
+        },
+        "hardestOpponent": {
+          "name": "Sandy",
+          "matches": 2,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -2.0
+        },
+        "favorableOpponent": {
+          "name": "Donny",
+          "matches": 2,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 2.0
+        },
+        "handicapExplanation": "The -2 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: create more point margin through stronger serve-return starts and cleaner finishing; retain confidence because the schedule has been materially difficult.",
+        "reliabilityNote": "The rating is developing and should become more stable as the match sample grows.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 45.28,
+        "currentRating": 45.28,
+        "delta": 0.0,
+        "previousRank": 12,
+        "currentRank": 12,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Developing",
+        "positiveFactors": [
+          {
+            "label": "Difficult schedule",
+            "value": 78.1
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low high point dominance",
+            "value": 28.8
+          },
+          {
+            "label": "Low partner versatility",
+            "value": 25.7
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 13,
+      "name": "David",
+      "slug": "david",
+      "matches": 12,
+      "wins": 5,
+      "losses": 7,
+      "winRate": 41.7,
+      "adjustedWinRate": 45.0,
+      "dominance": 22.0,
+      "expectation": 40.3,
+      "sos": 73.2,
+      "consistency": 39.2,
+      "clutch": 61.1,
+      "versatility": 40.8,
+      "recentForm": 40.0,
+      "rating": 43.36,
+      "tier": "D",
+      "gap": -6.64,
+      "status": "Established",
+      "handicap": -3,
+      "class": "C",
+      "analysis": {
+        "summary": "David is operating in a competitive middle band. The current 41.7% win rate leaves clear upside if close matches can be converted more consistently. The rating is established and supported by a comparatively reliable match sample.",
+        "strengths": [
+          "ability against demanding opposition"
+        ],
+        "developmentAreas": [
+          "point dominance",
+          "match-to-match consistency"
+        ],
+        "bestPartner": {
+          "name": "Edy SP",
+          "matches": 2,
+          "winRate": 50.0,
+          "chemistryDelta": 5.8,
+          "pointDiffPerMatch": -2.0
+        },
+        "challengingPartner": {
+          "name": "Alice",
+          "matches": 2,
+          "winRate": 0.0,
+          "chemistryDelta": -24.4
+        },
+        "hardestOpponent": {
+          "name": "Sandy",
+          "matches": 2,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -4.0
+        },
+        "favorableOpponent": {
+          "name": "Alice",
+          "matches": 3,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 1.67
+        },
+        "handicapExplanation": "The -3 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: reduce score volatility by using clearer percentage patterns under pressure; create more point margin through stronger serve-return starts and cleaner finishing.",
+        "reliabilityNote": "The rating is established and supported by a comparatively reliable match sample.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 43.36,
+        "currentRating": 43.36,
+        "delta": 0.0,
+        "previousRank": 13,
+        "currentRank": 13,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Established",
+        "positiveFactors": [
+          {
+            "label": "Difficult schedule",
+            "value": 73.2
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low high point dominance",
+            "value": 22.0
+          },
+          {
+            "label": "Low reliable consistency",
+            "value": 39.2
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 14,
+      "name": "Donny",
+      "slug": "donny",
+      "matches": 11,
+      "wins": 4,
+      "losses": 7,
+      "winRate": 36.4,
+      "adjustedWinRate": 42.1,
+      "dominance": 25.9,
+      "expectation": 34.2,
+      "sos": 76.6,
+      "consistency": 45.4,
+      "clutch": 38.9,
+      "versatility": 46.3,
+      "recentForm": 40.0,
+      "rating": 42.68,
+      "tier": "D",
+      "gap": -7.32,
+      "status": "Developing",
+      "handicap": -3,
+      "class": "C",
+      "analysis": {
+        "summary": "Donny is operating in a competitive middle band. The current 36.4% win rate leaves clear upside if close matches can be converted more consistently. The rating is developing and should become more stable as the match sample grows.",
+        "strengths": [
+          "ability against demanding opposition"
+        ],
+        "developmentAreas": [
+          "point dominance",
+          "performance above expectation",
+          "clutch execution"
+        ],
+        "bestPartner": {
+          "name": "Austin",
+          "matches": 1,
+          "winRate": 100.0,
+          "chemistryDelta": 49.7,
+          "pointDiffPerMatch": 1.0
+        },
+        "challengingPartner": {
+          "name": "Ronald",
+          "matches": 1,
+          "winRate": 0.0,
+          "chemistryDelta": -51.5
+        },
+        "hardestOpponent": {
+          "name": "Thohir",
+          "matches": 2,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -2.0
+        },
+        "favorableOpponent": {
+          "name": "Ricky",
+          "matches": 2,
+          "winRate": 50.0,
+          "pointDiffPerMatch": 1.0
+        },
+        "handicapExplanation": "The -3 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: practice end-of-game decisions and first-ball discipline in decisive points; create more point margin through stronger serve-return starts and cleaner finishing; retain confidence because the schedule has been materially difficult.",
+        "reliabilityNote": "The rating is developing and should become more stable as the match sample grows.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 42.68,
+        "currentRating": 42.68,
+        "delta": 0.0,
+        "previousRank": 14,
+        "currentRank": 14,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Developing",
+        "positiveFactors": [
+          {
+            "label": "Difficult schedule",
+            "value": 76.6
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low high point dominance",
+            "value": 25.9
+          },
+          {
+            "label": "Low performance above expectation",
+            "value": 34.2
+          },
+          {
+            "label": "Low clutch performance",
+            "value": 38.9
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 15,
+      "name": "Reza",
+      "slug": "reza",
+      "matches": 6,
+      "wins": 2,
+      "losses": 4,
+      "winRate": 33.3,
+      "adjustedWinRate": 42.9,
+      "dominance": 2.3,
+      "expectation": 35.2,
+      "sos": 100.0,
+      "consistency": 29.4,
+      "clutch": 70.0,
+      "versatility": 18.0,
+      "recentForm": 40.0,
+      "rating": 40.36,
+      "tier": "D",
+      "gap": -9.64,
+      "status": "Developing",
+      "handicap": -3,
+      "class": "C",
+      "analysis": {
+        "summary": "Reza is still building competitive stability. The present 33.3% win rate suggests that point construction and match conversion are the main development priorities. The rating is developing and should become more stable as the match sample grows.",
+        "strengths": [
+          "ability against demanding opposition",
+          "clutch execution"
+        ],
+        "developmentAreas": [
+          "point dominance",
+          "partner versatility",
+          "match-to-match consistency"
+        ],
+        "bestPartner": {
+          "name": "Austin",
+          "matches": 1,
+          "winRate": 100.0,
+          "chemistryDelta": 51.2,
+          "pointDiffPerMatch": 1.0
+        },
+        "challengingPartner": {
+          "name": "Kennard",
+          "matches": 1,
+          "winRate": 0.0,
+          "chemistryDelta": -51.3
+        },
+        "hardestOpponent": {
+          "name": "Austin",
+          "matches": 2,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -4.0
+        },
+        "favorableOpponent": {
+          "name": "Edy SP",
+          "matches": 2,
+          "winRate": 50.0,
+          "pointDiffPerMatch": -1.0
+        },
+        "handicapExplanation": "The -3 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: reduce score volatility by using clearer percentage patterns under pressure; create more point margin through stronger serve-return starts and cleaner finishing; retain confidence because the schedule has been materially difficult.",
+        "reliabilityNote": "The rating is developing and should become more stable as the match sample grows.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 40.36,
+        "currentRating": 40.36,
+        "delta": 0.0,
+        "previousRank": 15,
+        "currentRank": 15,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Developing",
+        "positiveFactors": [
+          {
+            "label": "Difficult schedule",
+            "value": 100.0
+          },
+          {
+            "label": "Clutch performance",
+            "value": 70.0
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low high point dominance",
+            "value": 2.3
+          },
+          {
+            "label": "Low performance above expectation",
+            "value": 35.2
+          },
+          {
+            "label": "Low reliable consistency",
+            "value": 29.4
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 16,
+      "name": "Nico",
+      "slug": "nico",
+      "matches": 6,
+      "wins": 2,
+      "losses": 4,
+      "winRate": 33.3,
+      "adjustedWinRate": 42.9,
+      "dominance": 23.2,
+      "expectation": 31.5,
+      "sos": 63.6,
+      "consistency": 14.8,
+      "clutch": 37.5,
+      "versatility": 20.5,
+      "recentForm": 40.0,
+      "rating": 37.96,
+      "tier": "D",
+      "gap": -12.04,
+      "status": "Developing",
+      "handicap": -4,
+      "class": "D",
+      "analysis": {
+        "summary": "Nico is still building competitive stability. The present 33.3% win rate suggests that point construction and match conversion are the main development priorities. The rating is developing and should become more stable as the match sample grows.",
+        "strengths": [
+          "competitive experience and current rating base"
+        ],
+        "developmentAreas": [
+          "match-to-match consistency",
+          "partner versatility",
+          "point dominance"
+        ],
+        "bestPartner": {
+          "name": "Ricky",
+          "matches": 1,
+          "winRate": 100.0,
+          "chemistryDelta": 52.6,
+          "pointDiffPerMatch": 3.0
+        },
+        "challengingPartner": {
+          "name": "Edy SP",
+          "matches": 1,
+          "winRate": 0.0,
+          "chemistryDelta": -40.0
+        },
+        "hardestOpponent": {
+          "name": "Rey",
+          "matches": 2,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -3.5
+        },
+        "favorableOpponent": {
+          "name": "Alice",
+          "matches": 2,
+          "winRate": 100.0,
+          "pointDiffPerMatch": 3.0
+        },
+        "handicapExplanation": "The -4 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: reduce score volatility by using clearer percentage patterns under pressure; practice end-of-game decisions and first-ball discipline in decisive points; create more point margin through stronger serve-return starts and cleaner finishing.",
+        "reliabilityNote": "The rating is developing and should become more stable as the match sample grows.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 37.96,
+        "currentRating": 37.96,
+        "delta": 0.0,
+        "previousRank": 16,
+        "currentRank": 16,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Developing",
+        "positiveFactors": [],
+        "riskFactors": [
+          {
+            "label": "Low high point dominance",
+            "value": 23.2
+          },
+          {
+            "label": "Low performance above expectation",
+            "value": 31.5
+          },
+          {
+            "label": "Low reliable consistency",
+            "value": 14.8
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 17,
+      "name": "Alwin",
+      "slug": "alwin",
+      "matches": 6,
+      "wins": 1,
+      "losses": 5,
+      "winRate": 16.7,
+      "adjustedWinRate": 35.7,
+      "dominance": 6.9,
+      "expectation": 15.1,
+      "sos": 95.8,
+      "consistency": 39.9,
+      "clutch": 50.0,
+      "versatility": 18.0,
+      "recentForm": 20.0,
+      "rating": 35.88,
+      "tier": "D",
+      "gap": -14.12,
+      "status": "Developing",
+      "handicap": -4,
+      "class": "D",
+      "analysis": {
+        "summary": "Alwin is still building competitive stability. The present 16.7% win rate suggests that point construction and match conversion are the main development priorities. The rating is developing and should become more stable as the match sample grows.",
+        "strengths": [
+          "ability against demanding opposition"
+        ],
+        "developmentAreas": [
+          "point dominance",
+          "performance above expectation",
+          "partner versatility"
+        ],
+        "bestPartner": {
+          "name": "Sandy",
+          "matches": 1,
+          "winRate": 100.0,
+          "chemistryDelta": 49.4,
+          "pointDiffPerMatch": 3.0
+        },
+        "challengingPartner": {
+          "name": "Kennard",
+          "matches": 1,
+          "winRate": 0.0,
+          "chemistryDelta": -42.9
+        },
+        "hardestOpponent": {
+          "name": "Sandy",
+          "matches": 2,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -3.0
+        },
+        "favorableOpponent": {
+          "name": "Ricky",
+          "matches": 2,
+          "winRate": 50.0,
+          "pointDiffPerMatch": 0.0
+        },
+        "handicapExplanation": "The -4 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: reduce score volatility by using clearer percentage patterns under pressure; create more point margin through stronger serve-return starts and cleaner finishing; rebuild momentum through repeatable tactical targets rather than forcing winners.",
+        "reliabilityNote": "The rating is developing and should become more stable as the match sample grows.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 35.88,
+        "currentRating": 35.88,
+        "delta": 0.0,
+        "previousRank": 17,
+        "currentRank": 17,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Developing",
+        "positiveFactors": [
+          {
+            "label": "Difficult schedule",
+            "value": 95.8
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low strong recent form",
+            "value": 20.0
+          },
+          {
+            "label": "Low high point dominance",
+            "value": 6.9
+          },
+          {
+            "label": "Low performance above expectation",
+            "value": 15.1
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 18,
+      "name": "Hansen",
+      "slug": "hansen",
+      "matches": 6,
+      "wins": 0,
+      "losses": 6,
+      "winRate": 0.0,
+      "adjustedWinRate": 28.6,
+      "dominance": 0.0,
+      "expectation": 0.0,
+      "sos": 98.5,
+      "consistency": 100.0,
+      "clutch": 50.0,
+      "versatility": 0.0,
+      "recentForm": 0.0,
+      "rating": 34.74,
+      "tier": "D",
+      "gap": -15.26,
+      "status": "Developing",
+      "handicap": -4,
+      "class": "D",
+      "analysis": {
+        "summary": "Hansen is still building competitive stability. The present 0.0% win rate suggests that point construction and match conversion are the main development priorities. The rating is developing and should become more stable as the match sample grows.",
+        "strengths": [
+          "match-to-match consistency",
+          "ability against demanding opposition"
+        ],
+        "developmentAreas": [
+          "partner versatility",
+          "performance above expectation",
+          "point dominance"
+        ],
+        "bestPartner": {
+          "name": "Edy SP",
+          "matches": 2,
+          "winRate": 0.0,
+          "chemistryDelta": -23.3,
+          "pointDiffPerMatch": -3.0
+        },
+        "challengingPartner": {
+          "name": "Rizky",
+          "matches": 2,
+          "winRate": 0.0,
+          "chemistryDelta": -33.3
+        },
+        "hardestOpponent": {
+          "name": "Ricky",
+          "matches": 4,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -2.75
+        },
+        "favorableOpponent": {
+          "name": "Edy SP",
+          "matches": 4,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -2.25
+        },
+        "handicapExplanation": "The -4 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: create more point margin through stronger serve-return starts and cleaner finishing; rebuild momentum through repeatable tactical targets rather than forcing winners; retain confidence because the schedule has been materially difficult.",
+        "reliabilityNote": "The rating is developing and should become more stable as the match sample grows.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 34.74,
+        "currentRating": 34.74,
+        "delta": 0.0,
+        "previousRank": 18,
+        "currentRank": 18,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Developing",
+        "positiveFactors": [
+          {
+            "label": "Difficult schedule",
+            "value": 98.5
+          },
+          {
+            "label": "Reliable consistency",
+            "value": 100.0
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low strong recent form",
+            "value": 0.0
+          },
+          {
+            "label": "Low high point dominance",
+            "value": 0.0
+          },
+          {
+            "label": "Low performance above expectation",
+            "value": 0.0
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 19,
+      "name": "Welly",
+      "slug": "welly",
+      "matches": 10,
+      "wins": 2,
+      "losses": 8,
+      "winRate": 20.0,
+      "adjustedWinRate": 33.3,
+      "dominance": 12.5,
+      "expectation": 15.4,
+      "sos": 86.4,
+      "consistency": 26.0,
+      "clutch": 30.0,
+      "versatility": 41.0,
+      "recentForm": 20.0,
+      "rating": 33.62,
+      "tier": "D",
+      "gap": -16.38,
+      "status": "Developing",
+      "handicap": -4,
+      "class": "D",
+      "analysis": {
+        "summary": "Welly is still building competitive stability. The present 20.0% win rate suggests that point construction and match conversion are the main development priorities. The rating is developing and should become more stable as the match sample grows.",
+        "strengths": [
+          "ability against demanding opposition"
+        ],
+        "developmentAreas": [
+          "point dominance",
+          "performance above expectation",
+          "recent form"
+        ],
+        "bestPartner": {
+          "name": "Edy SP",
+          "matches": 2,
+          "winRate": 0.0,
+          "chemistryDelta": -33.3,
+          "pointDiffPerMatch": -2.0
+        },
+        "challengingPartner": {
+          "name": "Edy SP",
+          "matches": 2,
+          "winRate": 0.0,
+          "chemistryDelta": -33.3
+        },
+        "hardestOpponent": {
+          "name": "Ronald",
+          "matches": 2,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -3.5
+        },
+        "favorableOpponent": {
+          "name": "Donny",
+          "matches": 2,
+          "winRate": 50.0,
+          "pointDiffPerMatch": 0.5
+        },
+        "handicapExplanation": "The -4 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: reduce score volatility by using clearer percentage patterns under pressure; practice end-of-game decisions and first-ball discipline in decisive points; create more point margin through stronger serve-return starts and cleaner finishing.",
+        "reliabilityNote": "The rating is developing and should become more stable as the match sample grows.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 33.62,
+        "currentRating": 33.62,
+        "delta": 0.0,
+        "previousRank": 19,
+        "currentRank": 19,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Developing",
+        "positiveFactors": [
+          {
+            "label": "Difficult schedule",
+            "value": 86.4
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low strong recent form",
+            "value": 20.0
+          },
+          {
+            "label": "Low high point dominance",
+            "value": 12.5
+          },
+          {
+            "label": "Low performance above expectation",
+            "value": 15.4
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    },
+    {
+      "rank": 20,
+      "name": "Alice",
+      "slug": "alice",
+      "matches": 14,
+      "wins": 1,
+      "losses": 13,
+      "winRate": 7.1,
+      "adjustedWinRate": 22.7,
+      "dominance": 6.0,
+      "expectation": 6.5,
+      "sos": 83.9,
+      "consistency": 72.5,
+      "clutch": 27.8,
+      "versatility": 54.0,
+      "recentForm": 0.0,
+      "rating": 31.42,
+      "tier": "D",
+      "gap": -18.58,
+      "status": "Established",
+      "handicap": -4,
+      "class": "D",
+      "analysis": {
+        "summary": "Alice is still building competitive stability. The present 7.1% win rate suggests that point construction and match conversion are the main development priorities. The rating is established and supported by a comparatively reliable match sample.",
+        "strengths": [
+          "ability against demanding opposition",
+          "match-to-match consistency"
+        ],
+        "developmentAreas": [
+          "recent form",
+          "point dominance",
+          "performance above expectation"
+        ],
+        "bestPartner": {
+          "name": "Ronald",
+          "matches": 2,
+          "winRate": 50.0,
+          "chemistryDelta": 13.1,
+          "pointDiffPerMatch": 0.0
+        },
+        "challengingPartner": {
+          "name": "David",
+          "matches": 2,
+          "winRate": 0.0,
+          "chemistryDelta": -24.4
+        },
+        "hardestOpponent": {
+          "name": "Edy SP",
+          "matches": 3,
+          "winRate": 0.0,
+          "pointDiffPerMatch": -3.0
+        },
+        "favorableOpponent": {
+          "name": "Donny",
+          "matches": 2,
+          "winRate": 50.0,
+          "pointDiffPerMatch": 0.0
+        },
+        "handicapExplanation": "The -4 handicap provides balancing support relative to stronger players and should improve competitive parity.",
+        "coachNote": "Priority: practice end-of-game decisions and first-ball discipline in decisive points; create more point margin through stronger serve-return starts and cleaner finishing; rebuild momentum through repeatable tactical targets rather than forcing winners.",
+        "reliabilityNote": "The rating is established and supported by a comparatively reliable match sample.",
+        "generatedFrom": [
+          "Official Ranking v2",
+          "Partner Chemistry",
+          "Opponent Difficulty",
+          "Official Handicap v2"
+        ]
+      },
+      "ratingChange": {
+        "snapshotId": "FLPR-V1-BASELINE-20260725",
+        "previousRating": 31.42,
+        "currentRating": 31.42,
+        "delta": 0.0,
+        "previousRank": 20,
+        "currentRank": 20,
+        "rankMovement": 0,
+        "direction": "UNCHANGED",
+        "event": "Production Baseline",
+        "eventDate": "2026-07-25",
+        "confidence": "Established",
+        "positiveFactors": [
+          {
+            "label": "Difficult schedule",
+            "value": 83.9
+          },
+          {
+            "label": "Reliable consistency",
+            "value": 72.5
+          }
+        ],
+        "riskFactors": [
+          {
+            "label": "Low strong recent form",
+            "value": 0.0
+          },
+          {
+            "label": "Low high point dominance",
+            "value": 6.0
+          },
+          {
+            "label": "Low performance above expectation",
+            "value": 6.5
+          }
+        ],
+        "explanation": "Production baseline established. No official rating movement is shown yet. The next approved tournament will compare the recalculated rating against this snapshot."
+      }
+    }
+  ],
+  "awards": [
+    {
+      "award": "FLPR Champion",
+      "winner": "Sandy",
+      "metric": "FLPR Rating",
+      "value": 70.51,
+      "rule": "All players",
+      "runnerUp": "Thohir",
+      "runnerUpValue": 64.67
+    },
+    {
+      "award": "Best Win Rate",
+      "winner": "Sandy",
+      "metric": "Raw Win %",
+      "value": 84.6,
+      "rule": "Minimum 6 matches",
+      "runnerUp": "Sandy",
+      "runnerUpValue": 0.85
+    },
+    {
+      "award": "Most Dominant",
+      "winner": "Sandy",
+      "metric": "Dominance",
+      "value": 100,
+      "rule": "Minimum 6 matches",
+      "runnerUp": "Austin",
+      "runnerUpValue": 82.44
+    },
+    {
+      "award": "Most Consistent",
+      "winner": "Hansen",
+      "metric": "Consistency",
+      "value": 100,
+      "rule": "Minimum 6 matches",
+      "runnerUp": "Thohir",
+      "runnerUpValue": 97.33
+    },
+    {
+      "award": "Clutch Player",
+      "winner": "Jonathan",
+      "metric": "Clutch",
+      "value": 75,
+      "rule": "Minimum 6 matches",
+      "runnerUp": "Kennard",
+      "runnerUpValue": 70
+    },
+    {
+      "award": "Best Recent Form",
+      "winner": "Thohir",
+      "metric": "Recent Form",
+      "value": 100,
+      "rule": "Minimum 4 matches",
+      "runnerUp": "Sandy",
+      "runnerUpValue": 80
+    },
+    {
+      "award": "Overachiever",
+      "winner": "Thohir",
+      "metric": "Vs Expectation Score",
+      "value": 100,
+      "rule": "Minimum 4 matches",
+      "runnerUp": "Sandy",
+      "runnerUpValue": 85.67
+    },
+    {
+      "award": "Toughest Schedule",
+      "winner": "Reza",
+      "metric": "SOS Score",
+      "value": 100,
+      "rule": "Minimum 4 matches",
+      "runnerUp": "Hansen",
+      "runnerUpValue": 98.54
+    },
+    {
+      "award": "Iron Player",
+      "winner": "Edy SP",
+      "metric": "Matches Played",
+      "value": 30,
+      "rule": "All players",
+      "runnerUp": "Ricky",
+      "runnerUpValue": 26
+    },
+    {
+      "award": "Most Reliable",
+      "winner": "Edy SP",
+      "metric": "Reliability",
+      "value": 92.6,
+      "rule": "All players",
+      "runnerUp": "Ricky",
+      "runnerUpValue": 0.92
+    },
+    {
+      "award": "Most Versatile",
+      "winner": "Edy SP",
+      "metric": "Versatility",
+      "value": 100,
+      "rule": "Minimum 6 matches",
+      "runnerUp": "Ricky",
+      "runnerUpValue": 89.83
+    }
+  ]
+}
